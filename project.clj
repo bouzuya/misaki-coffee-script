@@ -1,4 +1,4 @@
-(defproject misaki-coffee-script "0.1.1"
+(defproject org.clojars.bouzuya/misaki-coffee-script "0.1.2"
   :description "misaki-coffee-script is one of misaki's compiler plugin using clj-coffee-script."
   :url "https://github.com/bouzuya/misaki-coffee-script"
   :license {:name "Eclipse Public License"

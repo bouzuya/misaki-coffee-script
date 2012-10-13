@@ -4,8 +4,7 @@
     [coffee-script.core :only [compile-coffee]])
   (:require
     [clojure.java.io :as cji]
-    [misaki.server]
-    [misaki.compiler.default.core]))
+    [misaki.server]))
 
 (defn is-coffee-script?
   [config file]
@@ -23,19 +22,18 @@
 
 (defn -extension
   []
-  (cons :coffee (misaki.compiler.default.core/-extension)))
+  [:coffee])
 
 (defn -config
   [config]
   (merge {:coffee-script-in-dir "coffee/"
           :coffee-script-out-dir "js/"}
-         (misaki.compiler.default.core/-config config)))
+         config))
 
 (defn -compile
   [config file]
   (if (is-coffee-script? config file)
-    (compile-coffee-script-file config file)
-    (misaki.compiler.default.core/-compile config file)))
+    (compile-coffee-script-file config file)))
 
 (defn -main
   [& args]
